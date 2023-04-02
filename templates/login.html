@@ -5,28 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css"
     <title></title>
 </head>
 <body>
-<div class="container-sm">
-    <div class="card-body">
-        <h2 class="card-title">Sign</h2>
+<section class="vh-100 gradient-custom">
+        <div class="container py-5 h-100">
+          <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+              <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                <div class="card-body p-4 p-md-5">
+        <h2 class="card-title">Sign In</h2>
 
-        <form action="/name" method="POST">
+        <form action="/login" method="POST">
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" name="email" required class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="text" name="password" required class="form-control">
-            </div>
-            <button type="submit" class="btn btn-primary">Sign In</button>
-            <a class="btn btn-success" href="/" role="button">Go Back</a>
+                <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input type="email" id="form2Example1" class="form-control" name="email" value="email"/>
+    <label class="form-label" for="form2Example1">Email address</label>
+  </div>
+
+  <!-- Password input -->
+  <div class="form-outline mb-4">
+    <input type="password" id="form2Example2" class="form-control" name="password" value="password"/>
+    <label class="form-label" for="form2Example2">Password</label>
+  </div>
+            <button type="submit" class="btn btn-primary btn-block mb-4">Sign In</button>
+            <a class="btn btn-primary btn-block mb-4" href="/" role="button">Go Back</a>
+                </div>
         </form>
         <p style="color:red;" > {{error}}</p>
     </div>
-</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"

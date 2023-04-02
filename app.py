@@ -88,20 +88,68 @@ def insert(first_name, last_name, DOB, gender, email, password, phone):
 
 
 def search(*tags):
-    connection = sql.connect('hackpsu')
-
+    connection3 = sql.connect('hackpsu')
     # build the query dynamically based on the number of tags provided
-    query = "SELECT * FROM restaurant WHERE "
+    query = "SELECT restaurant_id FROM Restaurants WHERE "
+    query2 = "SELECT restaurant_id FROM Food WHERE "
+    print(tags)
+    # dynamically add number of tags to query
     for i in range(len(tags)):
         query += f"tags LIKE '%{tags[i]}%'"
+        query2 += f"tags LIKE '%{tags[i]}%'"
         if i < len(tags) - 1:
-            query += " AND "
+            query += " OR "
+            query2 += " OR "
 
-    result = connection.execute(query).fetchone()
-    if result is None:
+    # finalized query to select restaurants from Restaurants with matching tags
+    result = connection3.execute(query).fetchall()
+
+    # finalized query to select restaurants from Food with matching tags
+    result2 = connection3.execute(query2).fetchall()
+
+    # combines both resultant tuples into list of the tuples
+    bigresult = result + result2
+
+    # list of restaurants whose occurrences in big_result == number of tags
+    desiredIDs = find_values(count(bigresult), len(tags))
+
+    # since desiredIDs contains a list of tuples in form (1, ), convert into integer
+    desiredRs = []
+    for i in desiredIDs:
+        # turns the tuple item into an integer
+        id_as_integer = int(str(list(i))[1:-1])
+        print(id_as_integer)
+
+        # get restaurant information of restaurants inside desiredIDs
+        final = connection3.execute("SELECT * FROM Restaurants WHERE restaurant_id = %s" % id_as_integer).fetchone()
+
+        # add relevant restaurant info into list
+        desiredRs.append(final)
+
+        # for each element in desiredRs:
+        # display a html card with that element's info
+
+    print(desiredRs)
+    if desiredRs is None:
         return False
-
     return True
+
+
+# counts number of occurrences that a restaurant id appears in list
+def count(list):
+    itemcount = {}
+    for i in list:
+        itemcount[i] = list.count(i)
+    return itemcount
+
+
+# returns list of dictionary keys that have number of occurrences (value) == value
+def find_values(dictionary, value):
+    temp = []
+    for k, v in dictionary.items():
+        if v == value:
+            temp.append(k)
+    return temp
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -142,6 +190,18 @@ def register():
         insert(first_name, last_name, DOB, gender, email, password, phone)
 
     return render_template("homepage.html")
+
+
+@app.route('/homepage', methods=["GET", "POST"])
+def homepage():
+    if request.method == "POST":
+        data = request.get_json()
+        # data is now the array sent from the client-side
+        # You can do whatever you want with it here
+        print(data)
+        search(*data)
+        # compare to database
+        return 'Success'
 
 
 if __name__ == "__main__":
