@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../static/style.css">
+
+    <title>User Sign Up 2</title>
+  </head>
+  <body>
+    <section class="vh-100" style="background-color: #eee">
+      <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-lg-12 col-xl-11">
+            <div class="card text-black" style="border-radius: 25px">
+              <div class="card-body p-md-5">
+                <div class="row justify-content-center">
+                  <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                      Food Preferences
+                    </p>
+                    <form action="/register" method="POST">
+                      <div class="form-group">
+                        <label for="q1"
+                          >1. Do you have any food allergies?</label
+                        >
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="q1-option1"
+                            name="q1[]"
+                            value="Gluten"
+                          />
+                          <label class="form-check-label" for="q1-option1"
+                            >Gluten</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="q1-option2"
+                            name="q1[]"
+                            value="Dairy"
+                          />
+                          <label class="form-check-label" for="q1-option2"
+                            >Dairy</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="q1-option3"
+                            name="q1[]"
+                            value="Nuts"
+                          />
+                          <label class="form-check-label" for="q1-option3"
+                            >Nuts</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="q1-option4"
+                            name="q1[]"
+                            value="Nuts"
+                          />
+                          <label class="form-check-label" for="q1-option4"
+                            >Shellfish</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="q1-option5"
+                            name="q1[]"
+                            value="Nuts"
+                          />
+                          <label class="form-check-label" for="q1-option5"
+                            >Other</label
+                          >
+                        </div>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="q2">2. Are you vegetarian or vegan?</label>
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="q2-option1"
+                            name="q2[]"
+                            value="Vegetarian"
+                          />
+                          <label class="form-check-label" for="q2-option1"
+                            >Vegetarian</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="q2-option2"
+                            name="q2[]"
+                            value="Vegan"
+                          />
+                          <label class="form-check-label" for="q2-option2"
+                            >Vegan</label
+                          >
+                        </div>
+                        <div class="form-check">
+                          <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="q2-option3"
+                            name="q3[]"
+                            value="Kosher"
+                          />
+                          <label class="form-check-label" for="q2-option3"
+                            >Kosher</label
+                          >
+                        </div>
+
+                        <div class="form-check">
+                            <input
+                              type="checkbox"
+                              class="form-check-input"
+                              id="q2-option4"
+                              name="q4[]"
+                              value="Halal"
+                            />
+                            <label class="form-check-label" for="q2-option4"
+                              >Halal</label
+                            >
+                          </div>
+                      </div>
+
+                      
+
+                      <div class="form-group">
+                        <label for="q4"
+                          >4. Do you have any other dietary preferences or
+                          restrictions?</label
+                        >
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="q4"
+                          name="q4"
+                        />
+                      </div>
+
+                      <button type="submit" class="btn btn-primary">
+                        Submit
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
